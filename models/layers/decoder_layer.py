@@ -1,8 +1,8 @@
 import torch.nn as nn
-from multi_head_attention import MultiHeadedAttention
-from layer_norm import LayerNorm
-from position_wise_feed_forward import PositionwiseFeedForward
-from utils import clones, SublayerConnection
+from models.layers.multi_head_attention import MultiHeadedAttention
+from models.layers.position_wise_feed_forward import PositionwiseFeedForward
+from models.layers.layer_norm import LayerNorm
+from models.layers.utils import clones, SublayerConnection
 
 class DecoderLayer(nn.Module):
     "Decoder is made of self-attn, src-attn, and feed forward (defined below)"
@@ -26,7 +26,7 @@ class DecoderLayer(nn.Module):
 class DecoderLayerHubin(nn.Module):
 
     def __init__(self, d_model, ffn_hidden, n_head, drop_prob):
-        super(DecoderLayer, self).__init__()
+        super(DecoderLayerHubin, self).__init__()
         self.self_attention = MultiHeadedAttention(d_model=d_model, n_head=n_head)
         self.norm1 = LayerNorm(features=d_model)
         self.dropout1 = nn.Dropout(p=drop_prob)

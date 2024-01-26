@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-
+import math
 
 class PositionalEncoding(nn.Module):
     "Implement the PE function."
@@ -29,7 +29,7 @@ class PositionalEncodingHubin(nn.Module):
     "Implement the PE function."
 
     def __init__(self, d_model, dropout, max_len=5000):
-        super(PositionalEncoding, self).__init__()
+        super(PositionalEncodingHubin, self).__init__()
         self.dropout = nn.Dropout(p=dropout)
 
         # Compute the positional encodings once in log space.

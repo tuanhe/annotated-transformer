@@ -1,8 +1,9 @@
 import torch.nn as nn
-from copy import clones
+#from copy import clones
 from models.layers.layer_norm import LayerNorm
 from models.layers.decoder_layer import DecoderLayerHubin
 
+'''
 class Decoder(nn.Module):
     "Generic N layer decoder with masking."
 
@@ -15,6 +16,7 @@ class Decoder(nn.Module):
         for layer in self.layers:
             x = layer(x, memory, src_mask, tgt_mask)
         return self.norm(x)
+'''
     
 class DecoderHubin(nn.Module):
     def __init__(self, d_model, ffn_hidden, n_head, n_layers, drop_prob):

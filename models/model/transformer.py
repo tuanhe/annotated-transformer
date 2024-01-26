@@ -1,5 +1,5 @@
-from torch.nn import nn
-from encoder_decoder import EncoderDecoderHubin
+import torch.nn as nn
+from models.model.encoder_decoder import EncoderDecoderHubin
 #from models.
 
 '''

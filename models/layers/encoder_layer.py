@@ -1,9 +1,8 @@
 import torch.nn as nn
-from multi_head_attention import MultiHeadedAttention
-from position_wise_feed_forward import PositionwiseFeedForward
-from layer_norm import LayerNorm
-from utils import clones, SublayerConnection
-
+from models.layers.multi_head_attention import MultiHeadedAttention
+from models.layers.position_wise_feed_forward import PositionwiseFeedForward
+from models.layers.layer_norm import LayerNorm
+from models.layers.utils import clones, SublayerConnection
 
 class EncoderLayer(nn.Module):
     "Encoder is made up of self-attn and feed forward (defined below)"

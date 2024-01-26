@@ -1,21 +1,20 @@
 import torch.nn as nn
-from copy import clones
+#from copy import clones
 from models.layers.layer_norm import LayerNorm
 from models.layers.encoder_layer import EncoderLayerHubin
 
+'''
 class Encoder(nn.Module):
     "Core encoder is a stack of N layers"
 
     def __init__(self, layer, N):
         super(Encoder, self).__init__()
         self.layers = clones(layer, N)
-        '''
         self.layers = nn.ModuleList([EncoderLayer(d_model=d_model,
                                                   ffn_hidden=ffn_hidden,
                                                   n_head=n_head,
                                                   drop_prob=drop_prob)
                                      for _ in range(N)])
-        '''
         
         self.norm = LayerNorm(layer.size)
 
@@ -24,6 +23,7 @@ class Encoder(nn.Module):
         for layer in self.layers:
             x = layer(x, mask)
         return self.norm(x)
+'''
     
 class EncoderHubin(nn.Module):
     #def __init__(self, d_model, ffn_hidden, n_head, drop_prob):

@@ -14,5 +14,5 @@ class PositionwiseFeedForward(nn.Module):
         x = self.w_1(x)
         x = self.relu(x)
         x = self.dropout(x)
-        x = self.w_2(x)
+        return self.w_2(x)
         #return self.w_2(self.dropout(self.w_1(x).relu()))
