@@ -16,7 +16,6 @@ class Decoder(nn.Module):
             x = layer(x, memory, src_mask, tgt_mask)
         return self.norm(x)
     
-
 class DecoderHubin(nn.Module):
     def __init__(self, d_model, ffn_hidden, n_head, n_layers, drop_prob):
     #def __init__(self, dec_voc_size, max_len, d_model, ffn_hidden, n_head, n_layers, drop_prob, device):
@@ -34,15 +33,15 @@ class DecoderHubin(nn.Module):
                                                        drop_prob=drop_prob)
                                                        for _ in range(n_layers)])
 
-        self.linear = nn.Linear(d_model, dec_voc_size)
+        #self.linear = nn.Linear(d_model, dec_voc_size)
 
-    def forward(self, dec_inputs, enc_outputs, src_mask, tgt_mask):
+    def forward(self, x, enc_outputs, src_mask, tgt_mask):
         #dec_outputs = self.emb(dec_inputs)
 
         for layer in self.layers:
-            dec_outputs = layer(dec_outputs, enc_outputs, src_mask, tgt_mask)
+            x = layer(x, enc_outputs, src_mask, tgt_mask)
 
         # pass to LM head
-        output = self.linear(dec_outputs)
-        print(" checkout the output shape:", output.shape)
-        return output
+        #output = self.linear(dec_outputs)
+        #print(" checkout the output shape:", output.shape)
+        return x
