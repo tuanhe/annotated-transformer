@@ -1,12 +1,12 @@
 import torch
-from models.layers.utils import subsequent_mask
-from models.model.transformer import make_modelHubin
+from src.layers.utils import subsequent_mask
+from src.model.transformer import make_model
 
 #def make_modelHubin(src_vocab_size, tgt_vocab_size, d_model=512, d_ff=2048, n_head=8, 
 #                    n_blocks=6, max_len = 5000, dropout=0.1):
 
 def inference_test():
-    test_model = make_modelHubin(src_vocab_size = 11, tgt_vocab_size = 11, n_blocks = 2)
+    test_model = make_model(src_vocab = 11, tgt_vocab = 11, N = 2)
     test_model.eval()
     src = torch.LongTensor([[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]])
     src_mask = torch.ones(1, 1, 10)
