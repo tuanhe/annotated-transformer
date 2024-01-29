@@ -11,6 +11,7 @@ class PositionwiseFeedForward(nn.Module):
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, x):
+        print("当前类的名称是：", type(self).__name__)
         x = self.w_1(x)
         x = self.relu(x)
         x = self.dropout(x)

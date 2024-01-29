@@ -18,6 +18,7 @@ class LayerNorm(nn.Module):
     '''
     
     def forward(self, x):
+        print("当前类的名称是：", type(self).__name__)
         mean = x.mean(-1, keepdim=True)
         var = x.var(-1, unbiased=False, keepdim=True)
         # '-1' means last dimension. 
